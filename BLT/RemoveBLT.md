@@ -1,4 +1,4 @@
-## Remove BLT from Acquia Setup
+# Remove BLT from Acquia Setup
 
 ### Goal
 > Remove BLT support from a Drupal 10 project hosted in Acquia cloud
