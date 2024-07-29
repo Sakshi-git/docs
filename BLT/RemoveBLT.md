@@ -63,14 +63,6 @@ grumphp:
             triggered_by:
                 - php
                 - module
-                - inc
-                - install
-                - test
-                - profile
-                - theme
-                - info
-                - txt
-                - css
         phplint: ~
 
 ```
@@ -130,18 +122,6 @@ repo_type="$6"
 
 if [ "$target_env" != 'prod' ]; then
     echo "$site.$target_env: The $source_branch branch has been updated on $target_env. Clearing the cache."
-    drush @$site.$target_env cr
-    echo "$site.$target_env : Enabling maintenance mode."
-    drush @$site.$target_env sset system.maintenance_mode TRUE
-    echo "$site.$target_env : Updating database."
-    drush @$site.$target_env updb -y
-    echo "$site.$target_env : Rebuilding caches."
-    drush @$site.$target_env cr
-    echo "$site.$target_env : Importing config."
-    drush @$site.$target_env -y cim
-    echo "$site.$target_env : Disabling maintenance mode."
-    drush @$site.$target_env sset system.maintenance_mode FALSE
-    echo "$site.$target_env : Rebuilding caches."
     drush @$site.$target_env cr
 else
     echo "$site.$target_env: The $source_branch branch has been updated on $target_env."
